@@ -1,0 +1,19 @@
+{
+  "name": "sensor-to-db",
+  "version": "1.0.0",
+  "description": "Sensor-to-db",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johansundstrom/sensor-to-db.git"
+  },
+  "author": "Johan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johansundstrom/sensor-to-db/issues"
+  },
+  "homepage": "https://github.com/johansundstrom/sensor-to-db#readme"
+}
