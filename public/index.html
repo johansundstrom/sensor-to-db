@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CRUD på MongoDB Atlas</h1>
+    <ul>
+        <li><a href="/items/">List all</a></li>
+        <li><a href="/items/5eb8123af7d2f5412425a79a">List one</a> (5eb8123af7d2f5412425a79a)</li>
+        <li><a href="javascript:DoPost()">Create entry</a> (name: "Nisse", adress: "Eskilstuna")</li>
+        <li></li>
+    </ul>
+
+    <script language="javascript"> 
+        function DoPost(){
+            var data = { name: "Nisse", adress: "Eskilstuna" };
+            $.post("/items", data );
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</body>
+</html>
