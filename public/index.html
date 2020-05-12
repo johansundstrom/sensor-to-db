@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
 </head>
 <body>
     <h1>CRUD på MongoDB Atlas</h1>
@@ -24,60 +24,49 @@
         }
 
     
-        var width = 500;
-        var scaleFactor = 5;
-        var barHeight = 20;
+        let dataArr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
+        //var dataArr = [75, 80, 85, 90, 95, 100];
 
-        d3.json("smhi-temp.json", function(error, data) {
-            //Create SVG element
-            var svg = d3.select("body")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", barHeight * data.length);
+        const height = 400;
+        const width = 400;
 
-            // Create scale
-            var scale = d3.scaleLinear()
-                .domain([d3.min(data), d3.max(data)])
-                .range([0, width - 100]);
+        const canvas = d3.select("#canvas")
 
-            
-            // Add scales to axis
-            var x_axis = d3.axisBottom()
-                .scale(scale);
+        canvas.append("svg")
+            .attr('height', height)
+            .attr('width', width);
 
+        const svg = canvas.select('svg')
+        const rect = svg.selectAll('rect')
 
-            //Append group and insert axis
-            svg.append("g")
-                //.attr("transform", "translate(0, 80)")
-                .call(x_axis);
+        rect.data(dataArr)
+            .enter()
+            .append("rect")
+            .attr('height', height)
+            .attr('fill', function(){
+                let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
+                while(color.length < 6) {
+                    color = "0" + color;
+                }
+                return "#" + color;
+            })
 
+            .attr('width', function(d, i){
+                return (width / dataArr.length - 1);
+            })
 
-            var bar = svg.selectAll("g")
-                .data(data)
-                .enter()
-                .append("g")
-                .attr("transform", function(d, i) {
-                    return "translate(0," + i * barHeight + ")";
-                });
+            .attr('x', function(d, i){
+                let myWidth = i * (width / dataArr.length)
+                return myWidth;
+            })
 
-
-            bar.append("rect")
-                .attr("width", function(d) {
-                    console.log(d.age);
-                    return d.age * scaleFactor;
-                })
-                .attr("height", barHeight - 1);
-
-
-            bar.append("text")
-                .attr("x", function(d) { return (d.age * scaleFactor - 5); })
-                .attr("y", barHeight / 2)
-                .attr("dy", ".35em")
-                //.attr("dy", barHeight + "px")
-                .text(function(d) { return d.name; });
-            });
+            .attr('y', function(d, i) {
+                console.log(d3.max(dataArr));
+                return height - (d*2)
+            })
 
         </script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </body>
 </html>
