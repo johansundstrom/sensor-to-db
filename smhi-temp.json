@@ -1,0 +1,204 @@
+{
+    "value": [
+        {
+            "date": 1589220000000,
+            "value": "7.4",
+            "quality": "G"
+        },
+        {
+            "date": 1589223600000,
+            "value": "4.8",
+            "quality": "G"
+        },
+        {
+            "date": 1589227200000,
+            "value": "2.5",
+            "quality": "G"
+        },
+        {
+            "date": 1589230800000,
+            "value": "1.3",
+            "quality": "G"
+        },
+        {
+            "date": 1589234400000,
+            "value": "0.6",
+            "quality": "G"
+        },
+        {
+            "date": 1589238000000,
+            "value": "-1.4",
+            "quality": "G"
+        },
+        {
+            "date": 1589241600000,
+            "value": "0.5",
+            "quality": "G"
+        },
+        {
+            "date": 1589245200000,
+            "value": "-0.8",
+            "quality": "G"
+        },
+        {
+            "date": 1589248800000,
+            "value": "-1.7",
+            "quality": "G"
+        },
+        {
+            "date": 1589252400000,
+            "value": "-1.8",
+            "quality": "G"
+        },
+        {
+            "date": 1589256000000,
+            "value": "0.8",
+            "quality": "G"
+        },
+        {
+            "date": 1589259600000,
+            "value": "4.2",
+            "quality": "G"
+        },
+        {
+            "date": 1589263200000,
+            "value": "6.6",
+            "quality": "G"
+        },
+        {
+            "date": 1589266800000,
+            "value": "7.7",
+            "quality": "G"
+        },
+        {
+            "date": 1589270400000,
+            "value": "7.6",
+            "quality": "G"
+        },
+        {
+            "date": 1589274000000,
+            "value": "10.0",
+            "quality": "G"
+        },
+        {
+            "date": 1589277600000,
+            "value": "9.5",
+            "quality": "G"
+        },
+        {
+            "date": 1589281200000,
+            "value": "11.1",
+            "quality": "G"
+        },
+        {
+            "date": 1589284800000,
+            "value": "11.2",
+            "quality": "G"
+        },
+        {
+            "date": 1589288400000,
+            "value": "8.8",
+            "quality": "G"
+        },
+        {
+            "date": 1589292000000,
+            "value": "7.3",
+            "quality": "G"
+        },
+        {
+            "date": 1589295600000,
+            "value": "7.3",
+            "quality": "G"
+        },
+        {
+            "date": 1589299200000,
+            "value": "5.0",
+            "quality": "G"
+        },
+        {
+            "date": 1589302800000,
+            "value": "5.1",
+            "quality": "G"
+        },
+        {
+            "date": 1589306400000,
+            "value": "5.2",
+            "quality": "G"
+        }
+    ],
+    "updated": 1589306400000,
+    "parameter": {
+        "key": "1",
+        "name": "Lufttemperatur",
+        "summary": "momentanvärde, 1 gång/tim",
+        "unit": "degree celsius"
+    },
+    "station": {
+        "key": "96190",
+        "name": "Eskilstuna A",
+        "owner": "SMHI",
+        "height": 2.0
+    },
+    "period": {
+        "key": "latest-day",
+        "from": 1589216401000,
+        "to": 1589306400000,
+        "summary": "Data från senaste dygnet",
+        "sampling": "Ej angivet"
+    },
+    "position": [
+        {
+            "from": 657417600000,
+            "to": 733622399000,
+            "height": 9.0,
+            "latitude": 59.3868,
+            "longitude": 16.4648
+        },
+        {
+            "from": 830908800000,
+            "to": 1141171199000,
+            "height": 42.0,
+            "latitude": 59.3529,
+            "longitude": 16.7116
+        },
+        {
+            "from": 1200636000000,
+            "to": 1589306400000,
+            "height": 12.577,
+            "latitude": 59.3821,
+            "longitude": 16.4526
+        }
+    ],
+    "link": [
+        {
+            "rel": "data",
+            "type": "application/json",
+            "href": "https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/1/station/96190/period/latest-day/data.json"
+        },
+        {
+            "rel": "data",
+            "type": "application/xml",
+            "href": "https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/1/station/96190/period/latest-day/data.xml"
+        },
+        {
+            "rel": "data",
+            "type": "text/plain",
+            "href": "https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/1/station/96190/period/latest-day/data.csv"
+        },
+        {
+            "rel": "period",
+            "type": "application/atom+xml",
+            "href": "https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/1/station/96190/period/latest-day.atom"
+        },
+        {
+            "rel": "iso19139",
+            "type": "application/vnd.iso.19139+xml",
+            "href": "https://opendata-catalog.smhi.se/catalog/srv/eng/csw?request=GetRecordById&service=CSW&version=2.0.2&elementSetName=full&outputSchema=csw:IsoRecord&id=25080190-38ba-4279-a65d-d9ef8d0bf949"
+        },
+        {
+            "rel": "iso19139",
+            "type": "application/vnd.iso.19139+xml",
+            "href": "https://opendata-catalog.smhi.se/catalog/srv/eng/csw?request=GetRecordById&service=CSW&version=2.0.2&elementSetName=full&outputSchema=csw:IsoRecord&id=c6ae10b6-6a18-4e15-9444-fbd746f4609d"
+        }
+    ]
+}
