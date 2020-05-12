@@ -28,7 +28,7 @@
         var scaleFactor = 5;
         var barHeight = 20;
 
-        d3.json("/data/dataset.json", function(error, data) {
+        d3.json("smhi-temp.json", function(error, data) {
             //Create SVG element
             var svg = d3.select("body")
                 .append("svg")
