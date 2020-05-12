@@ -1,5 +1,8 @@
 # Sensor-to-db
 
+<img src="https://img.shields.io/badge/Status-Finished-brightgreen">
+
+
 ## Todo
 
 * Get live data
@@ -12,4 +15,3 @@
 * Why MongoDB?
 * https://www.google.com/search?q=free+nosql+database
 * 
-
