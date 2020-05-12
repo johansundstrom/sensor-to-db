@@ -11,11 +11,14 @@
     <ul>
         <li><a href="/items/">List all</a></li>
         <li><a href="/items/5eb8123af7d2f5412425a79a">List one</a> (5eb8123af7d2f5412425a79a)</li>
-        <li><a href="javascript:DoPost()">Create entry</a> (name: "Nisse", adress: "Eskilstuna")</li>
-        <li></li>
+        <li><a href="javascript:DoPost()">Create entry</a> ( name: "Nisse", adress: "Eskilstuna" )</li>
+        <li><form action="/" method="post">
+            namn <input type="text" name="name">
+            adress <input type="text" name="adress">
+            <input type="submit" value="Send">
+        </form></li>
     </ul>
 
-    
 
     <script language="javascript"> 
         function DoPost(){
@@ -23,50 +26,8 @@
             $.post("/items", data );
         }
 
-    
-        let dataArr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
-        //var dataArr = [75, 80, 85, 90, 95, 100];
+    </script>
 
-        const height = 400;
-        const width = 400;
-
-        const canvas = d3.select("#canvas")
-
-        canvas.append("svg")
-            .attr('height', height)
-            .attr('width', width);
-
-        const svg = canvas.select('svg')
-        const rect = svg.selectAll('rect')
-
-        rect.data(dataArr)
-            .enter()
-            .append("rect")
-            .attr('height', height)
-            .attr('fill', function(){
-                let color = Math.floor(Math.random() * Math.pow(256, 3)).toString(16);
-                while(color.length < 6) {
-                    color = "0" + color;
-                }
-                return "#" + color;
-            })
-
-            .attr('width', function(d, i){
-                return (width / dataArr.length - 1);
-            })
-
-            .attr('x', function(d, i){
-                let myWidth = i * (width / dataArr.length)
-                return myWidth;
-            })
-
-            .attr('y', function(d, i) {
-                console.log(d3.max(dataArr));
-                return height - (d*2)
-            })
-
-        </script>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </body>
 </html>

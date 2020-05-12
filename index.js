@@ -32,13 +32,28 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
         //console.log(result);
     });
 
-    app.get('/', function(req, res) {
+    app.get('/', (req, res) => {
         res.sendFile('index.html');
+    });
+
+    app.post('/', function(req, res) {
+        const name = req.body;
+        console.log("Added item: ", name);
+        dbCollection.insertOne(name, (error, result) => { 
+            // callback of insertOne
+            if (error) throw error;
+            // return updated list
+            dbCollection.find().toArray((_error, _result) => { 
+                // callback of find
+                if (_error) throw _error;
+                res.json(_result);
+            });
+        });
     });
 
     // CRUD
     //create
-    app.post("/items", (req, res) => {
+    app.post('/items', (req, res) => {
         const item = req.body;
         //const item = {name: "Mats", adress: "Trumpetvägen"};
         console.log("Added item: ", item);
@@ -55,7 +70,7 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
     });
 
     //read one
-    app.get("/items/:_id", (req, res) => {
+    app.get('/items/:_id', (req, res) => {
         const itemId = req.params._id;
         console.log("Read item: ", itemId);
         dbCollection.findOne({ "_id": ObjectId(itemId) }, (error, result) => {
