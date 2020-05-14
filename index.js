@@ -36,6 +36,7 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
         res.sendFile('index.html');
     });
 
+    //create from HTML
     app.post('/', function(req, res) {
         const name = req.body;
         console.log("Added item: ", name);
