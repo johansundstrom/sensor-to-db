@@ -125,7 +125,7 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
                 if (_error) throw _error;
                 res.json(_result);
             });
-        });
+        }); 
     });
 
 }, function(err) { 
