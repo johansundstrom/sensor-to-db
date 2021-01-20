@@ -1,7 +1,7 @@
 // mongodb driver
 const mongodb = require('mongodb');
 const MongoClient = require("mongodb").MongoClient;
-const dbConnectionUrl = "mongodb+srv://dbUser:dbPassword@cluster0-gtvws.mongodb.net/test?retryWrites=true&w=majority";
+const dbConnectionUrl = "mongodb+srv://dbUser:dbPassword@cluster0.gtvws.mongodb.net/dbCollection?retryWrites=true&w=majority";
 
 
 module.exports = {
@@ -20,8 +20,8 @@ function initialize(dbName, dbCollectionName, successCallback, failureCallback )
         } else {
             const dbObject = dbInstance.db(dbName);
             const dbCollection = dbObject.collection(dbCollectionName);
-            console.log(`[Connected to MongoDB ${dbName}]`);
-            console.log(`[Collection used ${dbCollectionName}`);
+
+            console.log(`[Connected to: ${dbName} using ${dbCollectionName}]`);
             successCallback(dbCollection);
         }
     });

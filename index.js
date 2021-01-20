@@ -14,49 +14,29 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-// << db setup >>
+
+const dbName = "dbMyDatabase";
+const dbCollectionName = "dbMyCollection";
 const db = require("./db");
-//const dbName = "sample_weatherdata";
-const dbName = "test";
-//const dbCollectionName = "data";
-const dbCollectionName = "test";
 
-// << db init >>
+// db init
 db.initialize(dbName, dbCollectionName, function(dbCollection) { 
-    // successCallback
-    // get all items
     const ObjectId = require('mongodb').ObjectID;
-
     dbCollection.find().toArray(function(err, result) {
         if (err) throw err;
-        //console.log(result);
+        console.log(err);
     });
 
+
+    // root endpoint
     app.get('/', (req, res) => {
         res.sendFile('index.html');
     });
 
-    //create from HTML
-    app.post('/', function(req, res) {
-        const name = req.body;
-        console.log("Added item: ", name);
-        dbCollection.insertOne(name, (error, result) => { 
-            // callback of insertOne
-            if (error) throw error;
-            // return updated list
-            dbCollection.find().toArray((_error, _result) => { 
-                // callback of find
-                if (_error) throw _error;
-                res.json(_result);
-            });
-        });
-    });
 
-    // CRUD
-    //create
-    app.post('/items', (req, res) => {
+    //create from HTML form  via JS - funkis
+    app.post('/', function(req, res) {
         const item = req.body;
-        //const item = {name: "Mats", adress: "Trumpetvägen"};
         console.log("Added item: ", item);
         dbCollection.insertOne(item, (error, result) => { 
             // callback of insertOne
@@ -70,10 +50,27 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
         });
     });
 
-    //read one
+
+    //create post from Javascript - funkis
+    app.post('/items', (req, res) => {
+        const item = req.body;
+        console.log("Added post: ", item);
+        dbCollection.insertOne(item, (error, result) => { 
+            // callback of insertOne
+            if (error) throw error;
+            dbCollection.find().toArray((_error, _result) => { 
+                // callback of find
+                if (_error) throw _error;
+                res.json(_result);
+            });
+        });
+    });
+
+
+    //read one - funkis
     app.get('/items/:_id', (req, res) => {
         const itemId = req.params._id;
-        console.log("Read item: ", itemId);
+        console.log("Read one item: ", itemId);
         dbCollection.findOne({ "_id": ObjectId(itemId) }, (error, result) => {
             if (error) throw error;
             // return item
@@ -81,21 +78,16 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
         });
     });
 
-    //read all
+
+    //read all - funkis
     app.get("/items", (req, res) => {
-        // return updated list
         dbCollection.find().toArray((error, result) => {
+            console.log("List all");
             if (error) throw error;
             res.json(result);
-            /*
-            for (var key in result) {
-                if (result.hasOwnProperty(key)) {
-                    console.log(key);
-                }
-            }
-            */
         });
     });
+
 
     //update
     app.put("/items/:_id", (req, res) => {
@@ -113,8 +105,9 @@ db.initialize(dbName, dbCollectionName, function(dbCollection) {
         });
     });
 
+
     //delete
-    app.delete("/items/:_id", (req, res) => {
+    app.delete("/del/:_id", (req, res) => {
         const itemId = req.params._id;
         console.log("Delete item with id: ", itemId);
     

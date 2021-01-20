@@ -10,22 +10,26 @@
     <h1>CRUD på MongoDB Atlas</h1>
     <ul>
         <li><a href="/items/">List all</a></li>
-        <li><a href="/items/5eb8123af7d2f5412425a79a">List one</a> (5eb8123af7d2f5412425a79a)</li>
+        <li><a href="/items/600841183e400c86d252dad1">List one</a> (600841183e400c86d252dad1)</li>
         <li><a href="javascript:DoPost()">Create entry</a> ( name: "Nisse", adress: "Eskilstuna" )</li>
         <li><form action="/" method="post">
             namn <input type="text" name="name">
             adress <input type="text" name="adress">
             <input type="submit" value="Send">
         </form></li>
+        <li><form action="/" method="post">
+            namn <input type="text" name="id">
+            adress <input type="text" name="id">
+            <input type="submit" value="delete">
+        </form></li>
     </ul>
 
 
     <script language="javascript"> 
-        function DoPost(){
+        function DoPost() {
             var data = { name: "Nisse", adress: "Eskilstuna" };
             $.post("/items", data );
         }
-
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
